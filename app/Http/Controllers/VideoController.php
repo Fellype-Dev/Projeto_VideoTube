@@ -61,13 +61,14 @@ class VideoController extends Controller
         return redirect()->route('videos.index')->with('success', 'Vídeo cadastrado com sucesso!');
     }
     public function show(Video $video)
-{
-    // Verifica se é um vídeo do YouTube para usar o embed
-    $isYoutube = str_contains($video->url, 'youtube.com') || str_contains($video->url, 'youtu.be');
-    $embedUrl = $isYoutube ? "https://www.youtube.com/embed/{$video->getYoutubeId()}" : null;
+    {
+        // Carrega todos os vídeos (exceto o atual) para a coluna lateral
+        $videos = Video::where('id', '!=', $video->id)
+            ->latest()
+            ->get();
 
-    return view('videos.show', compact('video', 'isYoutube', 'embedUrl'));
-}
+        return view('videos.show', compact('video', 'videos'));
+    }
 
     public function edit(Video $video)
     {
