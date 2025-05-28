@@ -11,6 +11,16 @@ class Video extends Model
 
     protected $fillable = ['titulo', 'descricao', 'url', 'categoria', 'thumbnail'];
 
+    // Categorias pré-definidas
+    public const CATEGORIAS = [
+        'JOGOS' => 'Jogos',
+        'ENSINO' => 'Ensino',
+        'MUSICA' => 'Música',
+        'TECNOLOGIA' => 'Tecnologia',
+        'ESPORTES' => 'Esportes',
+        'OUTROS' => 'Outros'
+    ];
+
     /**
      * Extrai o ID do vídeo do YouTube a partir da URL
      */

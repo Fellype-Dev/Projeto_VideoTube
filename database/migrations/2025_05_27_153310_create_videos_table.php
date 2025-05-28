@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->string('titulo', 150);
             $table->text('descricao')->nullable();
             $table->string('url');
-            $table->string('categoria', 50)->nullable();
+            $table->string('categoria', 50)->nullable(false)->change();
             $table->string('thumbnail')->nullable();
             $table->timestamps();
         });

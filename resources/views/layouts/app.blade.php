@@ -42,26 +42,6 @@
             border-color: var(--primary-dark);
         }
         
-        .btn-outline-primary {
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .btn-outline-primary:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .card {
-            border: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        
         .video-thumbnail {
             width: 100%;
             height: 180px;
@@ -75,38 +55,18 @@
             margin-top: auto;
             padding: 1.5rem 0;
         }
-        
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .action-buttons .btn {
-            width: 40px;
-            height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: 0 3px;
-        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ route('videos.index') }}">
                 <i class="bi bi-play-circle-fill me-2"></i>VideoTube
             </a>
-            <div class="d-flex">
-                <a href="{{ route('videos.create') }}" class="btn btn-primary">
-                    <i class="bi bi-plus-lg me-1"></i> Novo Vídeo
-                </a>
-            </div>
+            <!-- Botão único movido para o navbar -->
+            <a href="{{ route('videos.create') }}" class="btn btn-danger">
+                <i class="bi bi-plus-lg me-1"></i> Novo Vídeo
+            </a>
         </div>
     </nav>
 

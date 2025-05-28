@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 fw-bold text-dark">Nossos Vídeos</h1>
-    </div>
+    <h1 class="h3 fw-bold text-dark mb-4">Nossos Vídeos</h1>
 
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show">
@@ -32,7 +30,9 @@
                 </div>
                 <div class="card-footer bg-white border-top-0 pb-3">
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="badge bg-secondary">{{ $video->categoria ?? 'Sem categoria' }}</span>
+                        <span class="badge bg-secondary">
+                            {{ App\Models\Video::CATEGORIAS[$video->categoria] ?? $video->categoria }}
+                        </span>
                         <div class="action-buttons">
                             <a href="{{ route('videos.edit', $video) }}" class="btn btn-sm btn-outline-primary" 
                                data-bs-toggle="tooltip" title="Editar">

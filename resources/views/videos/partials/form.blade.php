@@ -32,10 +32,14 @@
     </div>
     <div class="col-md-6 mb-3">
         <label for="categoria" class="form-label fw-bold">Categoria</label>
-        <input type="text" name="categoria" id="categoria"
-               value="{{ old('categoria', $video->categoria ?? '') }}"
-               class="form-control @error('categoria') is-invalid @enderror"
-               placeholder="Ex: Educação, Entretenimento">
+        <select name="categoria" id="categoria" class="form-select @error('categoria') is-invalid @enderror" required>
+            <option value="">Selecione uma categoria</option>
+            @foreach(App\Models\Video::CATEGORIAS as $key => $value)
+                <option value="{{ $key }}" {{ old('categoria', $video->categoria ?? '') == $key ? 'selected' : '' }}>
+                    {{ $value }}
+                </option>
+            @endforeach
+        </select>
         @error('categoria')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror

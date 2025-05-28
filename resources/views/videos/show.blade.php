@@ -3,27 +3,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <!-- Coluna principal do vídeo (larger on larger screens) -->
+        <!-- Coluna principal do vídeo -->
         <div class="col-lg-8 col-xl-9">
             <div class="video-container mb-4">
                 @if(str_contains($video->url, 'youtube.com') || str_contains($video->url, 'youtu.be'))
                     @php
-                        // Extrai o ID do vídeo do YouTube
-                        $videoId = null;
-                        $patterns = [
-                            '~youtube\.com/watch\?v=([^&]+)~',
-                            '~youtube\.com/embed/([^/?]+)~',
-                            '~youtube\.com/v/([^/?]+)~',
-                            '~youtu\.be/([^/?]+)~',
-                            '~youtube\.com/watch\?.+&v=([^&]+)~'
-                        ];
-                        
-                        foreach ($patterns as $pattern) {
-                            if (preg_match($pattern, $video->url, $matches)) {
-                                $videoId = $matches[1];
-                                break;
-                            }
-                        }
+                        $videoId = $video->getYoutubeId();
                     @endphp
                     
                     @if($videoId)
@@ -62,9 +47,9 @@
                 
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex gap-2">
-                        @if($video->categoria)
-                            <span class="badge bg-primary">{{ $video->categoria }}</span>
-                        @endif
+                        <span class="badge bg-primary">
+                            {{ App\Models\Video::CATEGORIAS[$video->categoria] ?? $video->categoria }}
+                        </span>
                         <span class="text-muted">{{ $video->created_at->diffForHumans() }}</span>
                     </div>
                     
@@ -125,7 +110,7 @@
                                             </a>
                                         </h6>
                                         <p class="card-text small text-muted mb-0">
-                                            {{ $relatedVideo->categoria ?? 'Sem categoria' }}
+                                            {{ App\Models\Video::CATEGORIAS[$relatedVideo->categoria] ?? $relatedVideo->categoria }}
                                         </p>
                                         <p class="card-text small text-muted">
                                             {{ $relatedVideo->created_at->diffForHumans() }}

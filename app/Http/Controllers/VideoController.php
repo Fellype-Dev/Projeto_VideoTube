@@ -25,8 +25,8 @@ class VideoController extends Controller
         $validated = $request->validate([
             'titulo' => 'required|max:255',
             'descricao' => 'nullable',
-            'url' => 'required|url',
-            'categoria' => 'nullable|max:100',
+            'url' => 'required|url|max:2048', // Adiciona validação de tamanho
+            'categoria' => 'required|in:' . implode(',', array_keys(Video::CATEGORIAS)),
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
@@ -81,7 +81,7 @@ class VideoController extends Controller
             'titulo' => 'required|max:255',
             'descricao' => 'nullable',
             'url' => 'required|url',
-            'categoria' => 'nullable|max:100',
+            'categoria' => 'required|in:' . implode(',', array_keys(Video::CATEGORIAS)),
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
