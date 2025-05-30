@@ -12,7 +12,6 @@
 - ✅ **Adição simplificada** - Basta colar a URL do YouTube
 - 🖼️ **Thumbnails automáticas** - Capturadas diretamente do YouTube
 - 🗂️ **Organização por categorias** - Jogos, Música, Tecnologia e mais
-- 🔍 **Busca rápida** - Encontre seus vídeos facilmente
 - 📱 **Totalmente responsivo** - Funciona em qualquer dispositivo
 
 
