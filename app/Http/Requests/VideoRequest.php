@@ -16,12 +16,13 @@ class VideoRequest extends FormRequest
     {
         return [
             'titulo' => ['required', 'string', 'max:150'],
-            'descricao' => ['nullable', 'string'],
-            'url' => ['required', 'url', 'max:2048'], // Adicionado max:2048
+            'descricao' => ['nullable', 'string', 'max:2048'],
+            'url' => ['required', 'url', 'max:2048', 'youtube_url'], // Nova regra youtube_url
             'categoria' => ['required', 'in:' . implode(',', array_keys(Video::CATEGORIAS))],
             'thumbnail' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ];
     }
+
     public function messages(): array
     {
         return [
@@ -29,6 +30,7 @@ class VideoRequest extends FormRequest
             'titulo.max' => 'O título deve ter no máximo 150 caracteres.',
             'url.required' => 'A URL do vídeo é obrigatória.',
             'url.url' => 'A URL deve ser válida.',
+            'url.youtube_url' => 'Apenas URLs do YouTube são permitidas.', // Nova mensagem de erro
             'categoria.required' => 'A categoria é obrigatória.',
             'categoria.in' => 'Selecione uma categoria válida.',
             'url.max' => 'A URL não pode exceder 2048 caracteres.',

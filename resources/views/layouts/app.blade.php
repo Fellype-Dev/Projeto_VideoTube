@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,18 @@
             --dark: #24272B;
             --black: #07070A;
         }
-        
+
+        /* Adicione na seção de estilo */
+        .character-counter {
+            font-size: 0.75rem;
+            text-align: right;
+            margin-top: 0.25rem;
+        }
+
+        .character-counter.warning {
+            color: #dc3545;
+        }
+
         body {
             display: flex;
             flex-direction: column;
@@ -22,33 +34,33 @@
             background-color: #f8f9fa;
             color: var(--black);
         }
-        
+
         .navbar {
             background-color: var(--dark) !important;
         }
-        
+
         .navbar-brand {
             color: white !important;
             font-weight: bold;
         }
-        
+
         .btn-primary {
             background-color: var(--primary);
             border-color: var(--primary);
         }
-        
+
         .btn-primary:hover {
             background-color: var(--primary-dark);
             border-color: var(--primary-dark);
         }
-        
+
         .video-thumbnail {
             width: 100%;
             height: 180px;
             object-fit: cover;
             background-color: var(--dark);
         }
-        
+
         footer {
             background-color: var(--dark);
             color: white;
@@ -57,6 +69,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -81,5 +94,10 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    @stack('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
+
 </html>
