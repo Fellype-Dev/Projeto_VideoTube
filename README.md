@@ -1,6 +1,13 @@
 # 📺 VideoTube - Plataforma de Gerenciamento de Vídeos
 
 **Uma plataforma minimalista para organizar e assistir seus vídeos do YouTube favoritos**
+
+## 👤 Colaboradores
+
+- Fellype Kekis 
+- Pablo Gabriel Lara Chodoma 
+- Luis Henryque Novakoski 
+
 ## 🖼️ Screenshots
 
 | Página Principal | Página do Vídeo |
