@@ -10,7 +10,7 @@
             </a>
         </div>
 
-        <form action="{{ route('videos.update', $video) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('videos.update', $video) }}" method="POST" enctype="multipart/form-data" data-cy="video-form">
             @csrf
             @method('PUT')
 

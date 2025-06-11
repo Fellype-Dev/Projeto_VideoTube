@@ -35,14 +35,14 @@
                         </span>
                         <div class="action-buttons">
                             <a href="{{ route('videos.edit', $video) }}" class="btn btn-sm btn-outline-primary" 
-                               data-bs-toggle="tooltip" title="Editar">
+                               data-bs-toggle="tooltip" title="Editar" data-cy="edit-button">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             <form action="{{ route('videos.destroy', $video) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger" 
-                                        data-bs-toggle="tooltip" title="Excluir"
+                                        data-bs-toggle="tooltip" title="Excluir" data-cy="delete-button"
                                         onclick="return confirm('Tem certeza que deseja excluir este vídeo?')">
                                     <i class="bi bi-trash"></i>
                                 </button>

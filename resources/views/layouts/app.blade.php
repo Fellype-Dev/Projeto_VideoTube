@@ -77,7 +77,7 @@
                 <i class="bi bi-play-circle-fill me-2"></i>VideoTube
             </a>
             <!-- Botão único movido para o navbar -->
-            <a href="{{ route('videos.create') }}" class="btn btn-danger">
+            <a href="{{ route('videos.create') }}" class="btn btn-danger" data-cy="create-video-button">
                 <i class="bi bi-plus-lg me-1"></i> Novo Vídeo
             </a>
         </div>
@@ -97,7 +97,7 @@
 
     @stack('scripts')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 </body>
 
 </html>

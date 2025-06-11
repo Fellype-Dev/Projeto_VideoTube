@@ -1,6 +1,6 @@
 <div class="mb-3">
     <label for="titulo" class="form-label fw-bold">Título do Vídeo</label>
-    <input type="text" name="titulo" id="titulo" value="{{ old('titulo', $video->titulo ?? '') }}"
+    <input type="text" name="titulo" id="titulo" data-cy="video-title-input" value="{{ old('titulo', $video->titulo ?? '') }}"
         class="form-control @error('titulo') is-invalid @enderror" placeholder="Digite o título do vídeo"
         maxlength="150" required>
     @error('titulo')
@@ -10,7 +10,7 @@
 
 <div class="mb-3">
     <label for="descricao" class="form-label fw-bold">Descrição</label>
-    <textarea name="descricao" id="descricao" rows="4" class="form-control @error('descricao') is-invalid @enderror"
+    <textarea name="descricao" data-cy="video-description-textarea" id="descricao" rows="4" class="form-control @error('descricao') is-invalid @enderror"
         placeholder="Adicione uma descrição para o vídeo"
         maxlength="2048">{{ old('descricao', $video->descricao ?? '') }}</textarea>
     @error('descricao')
@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-md-6 mb-3">
         <label for="url" class="form-label fw-bold">URL do Vídeo</label>
-        <input type="url" name="url" id="url" value="{{ old('url', $video->url ?? '') }}"
+        <input type="url" name="url" id="url" data-cy="video-url-input" value="{{ old('url', $video->url ?? '') }}"
             class="form-control @error('url') is-invalid @enderror" placeholder="https://www.youtube.com/watch?v=..."
             maxlength="2048" required>
         @error('url')
@@ -30,7 +30,7 @@
     </div>
     <div class="col-md-6 mb-3">
         <label for="categoria" class="form-label fw-bold">Categoria</label>
-        <select name="categoria" id="categoria" class="form-select @error('categoria') is-invalid @enderror" required>
+        <select name="categoria" data-cy="video-category-select" id="categoria" class="form-select @error('categoria') is-invalid @enderror" required>
             <option value="">Selecione uma categoria</option>
             @foreach(App\Models\Video::CATEGORIAS as $key => $value)
                 <option value="{{ $key }}" {{ old('categoria', $video->categoria ?? '') == $key ? 'selected' : '' }}>
